@@ -6,7 +6,7 @@ abi = JSON.parse('[{"constant":true,"inputs":[{"name":"candidato","type":"bytes3
 
 VotacionContract = web3.eth.contract(abi);
 
-contractInstance = VotacionContract.at('0xa06b24a84ce681f219f04b4139e0d7a70c06f9fc');  //
+contractInstance = VotacionContract.at('0x739eb7976402b87e0685c31101b5359799c2f1d7');  //
 
 candidatos = {"Gaston" : "candidato-1", "Juan" : "candidato-2", "Lean": "candidato-3"}
 
