@@ -11,24 +11,27 @@ contract Votacion {
 
   
   bytes32[] public listaCandidatos;
-  //Utilizamos un array de bytes32 para guardar la lista de candidatos
+  // Utilizamos un array de bytes32 para guardar la lista de candidatos
   
   constructor(bytes32[] nombreCandidatos) public {
     listaCandidatos = nombreCandidatos;
   }
+  // Este es el constructor que es llamado una sola vez, cuando se implementa (deploy) en la blockchain. 
+  // Al implementarlo, pasamos un array con los candidatos que van a participar en la elección. 
   
   
   function totalVotos(bytes32 candidato) view public returns (uint8) {
     require(candidatoValido(candidato));
     return votosRecibidos[candidato];
   }
-  
+  // Función que devuelve el total de votos recibido por un candidato
   
   function votarPorCandidato(bytes32 candidato) public {
     require(candidatoValido(candidato));
     votosRecibidos[candidato] += 1;
   }
-  
+  // Función que equivale a emitir un voto. Aumenta la cuenta de votos para el candidato especifico. 
+
   
   function candidatoValido(bytes32 candidato) view public returns (bool) {
     for(uint i = 0; i < listaCandidatos.length; i++) {
@@ -38,7 +41,7 @@ contract Votacion {
     }
     return false;
   }
-  
+  // Función que valida los candidatos. 
   
   
 }
