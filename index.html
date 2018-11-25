@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>Ejemplo de DAPP</title>
+ <title>Ejemplo de DAPP de Votación</title>
  <link href='https://fonts.googleapis.com/css?family=Open Sans:400,700' rel='stylesheet' type='text/css'>
  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
 </head>
 <body class="container">
- <h1>Ejemplo de aplicación descentralizada</h1>
+	
+	
+ <h1>Ejemplo de DAPP de Votación</h1>
  <div class="table-responsive">
   <table class="table table-bordered">
    <thead>
@@ -16,23 +18,46 @@
     </tr>
    </thead>
    <tbody>
+	   
+	   
+	   
     <tr>
-     <td>Gaston</td>
+     <td>George Washington</td>
      <td id="candidato-1"></td>
     </tr>
     <tr>
-     <td>Juan</td>
+     <td>John Adams</td>
      <td id="candidato-2"></td>
     </tr>
     <tr>
-     <td>Lean</td>
+     <td>Thomas Jefferson</td>
      <td id="candidato-3"></td>
     </tr>
+    
+     <tr>
+     <td>James Madison</td>
+     <td id="candidato-4"></td>
+    </tr>
+    
+     <tr>
+     <td>James Monroe</td>
+     <td id="candidato-5"></td>
    </tbody>
   </table>
- </div>
   
- <input type="text" id="candidato" />
+   <div id="msg"></div>
+   
+ </div>
+    
+ <select id="candidato">
+	 <option>Seleccionar el candidato</option> 
+	 <option value="Monroe">James Monroe</option>
+	 <option value="Madison">James Madison</option>
+	 <option value="Jefferson">Thomas Jefferson</option>	 	 
+	 <option value="Adams">John Adams</option>	 	 
+	 <option value="Washington">George Washington</option>	 	 	 	 
+ </select>	  
+<!--<input type="text" id="candidato" />-->
  
  <a href="#" onclick="votarPorCandidato()" class="btn btn-primary">Votar</a>
 </body>
