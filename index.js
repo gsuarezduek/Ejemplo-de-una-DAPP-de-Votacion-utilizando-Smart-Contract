@@ -4,18 +4,24 @@ abi = JSON.parse('[{"constant":true,"inputs":[{"name":"candidato","type":"bytes3
 
 VotacionContract = web3.eth.contract(abi);
 
-contractInstance = VotacionContract.at('0xd35e4f6408f4f2606503d5222114851cc35ff3ef');  //La dirección tenemos que cambiarla con la dirección que hacer el deploy del contrato. Desde la consola de Node.JS la obtenemos con instanciaContrato.address
+contractInstance = VotacionContract.at('0x1c6e1cfa8fb615113d120f559327b38da3119208');  //La dirección tenemos que cambiarla con la dirección que hacer el deploy del contrato. Desde la consola de Node.JS la obtenemos con instanciaContrato.address
 
 
 candidatos = {"Washington" : "candidato-1", "Adams" : "candidato-2", "Jefferson": "candidato-3",  "Madison": "candidato-4" , "Monroe": "candidato-5"}
 
 function votarPorCandidato(candidato){
+	
+//	$("#msg").html("Voto emitido. El countandor se incrementará al momento de agregar el voto en la blockchain")
+    
+   		    
 	nombreCandidato = $("#candidato").val();
 	
 	contractInstance.votarPorCandidato(nombreCandidato, {from: web3.eth.accounts[0], gas: 4700000}, function(){
 		let div_id = candidatos[nombreCandidato];
 		$("#" + div_id).html(contractInstance.totalVotos.call(nombreCandidato).toString());
 	});	
+	
+	
 }
 
 $(document).ready(function(){
@@ -25,6 +31,8 @@ $(document).ready(function(){
 		let name = nombreCandidatos[i];
 		let val = contractInstance.totalVotos.call(name).toNumber();
 		$("#" + candidatos[name]).html(val);
+		
+		
 	}
 	
-});
+});      

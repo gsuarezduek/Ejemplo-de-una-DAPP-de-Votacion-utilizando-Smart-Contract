@@ -15,13 +15,13 @@ Para deploy:
 > byteCode = compiledCode.contracts[':Votacion'].bytecode
 > deployedContract = ContratoVotacion.new(['Washington','Adams','Jefferson','Madison','Monroe'],{data: byteCode, from: web3.eth.accounts[0], gas: 4700000})
 > deployedContract.address
-> InstanciaContrato = ContratoVotacion.at(deployedContract.address)
+> instanciaContrato = ContratoVotacion.at(deployedContract.address)
 
 Interactuar con el contrato:
 
 > instanciaContrato.totalVotos.call('Washington')
 { [String: '0'] s: 1, e: 0, c: [ 0 ] }
-> instanciaContrato.totalVotos.call('Washington', {from: web3.eth.accounts[0]})
+> instanciaContrato.totalVotos('Washington', {from: web3.eth.accounts[0]})
 '0xed5a8e2db9ac9415977327b3449d47e6e3de8fa55d04735b7960a61bf6ac0b83'
 > instanciaContrato.totalVotos.call('Washington').toLocaleString()
 '1'
